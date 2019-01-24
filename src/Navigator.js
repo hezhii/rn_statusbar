@@ -6,6 +6,7 @@ import TabBarIcon from './components/TabBarIcon'
 import Home from './pages/Home'
 import My from './pages/My'
 import Login from './pages/Login'
+import Register from './pages/Register'
 
 const Main = createBottomTabNavigator(
   {
@@ -37,7 +38,8 @@ export default createAppContainer(createStackNavigator(
         header: null,
       },
     },
-    Login
+    Login,
+    Register
   },
   {
     defaultNavigationOptions: {

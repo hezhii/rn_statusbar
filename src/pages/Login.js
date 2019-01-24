@@ -1,15 +1,37 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, StatusBar, Button } from 'react-native'
+
+import { isAndroid } from '../utils/device'
 
 export default class Login extends React.PureComponent {
   static navigationOptions = {
     title: '登录',
   }
 
+  constructor(props) {
+    super(props)
+    this._navListener = props.navigation.addListener('willFocus', () => {
+      StatusBar.setBarStyle('dark-content');
+      isAndroid() && StatusBar.setBackgroundColor('#fff');
+    });
+  }
+
+  componentWillUnmount() {
+    this._navListener.remove();
+  }
+
+
   render() {
     return (
       <View style={styles.fill}>
-        <Text style={styles.text}>登录页面</Text>
+        <StatusBar translucent={false} backgroundColor='#fff' barStyle="dark-content" />
+        <View style={styles.buttonWrapper}>
+          <Button
+            title="点击注册"
+            onPress={() => this.props.navigation.push('Register')}
+            color="#437dff"
+          />
+        </View>
       </View>
     )
   }
@@ -19,11 +41,7 @@ const styles = StyleSheet.create({
   fill: {
     flex: 1
   },
-  text: {
-    marginTop: 32,
-    fontSize: 20,
-    fontWeight: '500',
-    color: '#437dff',
-    textAlign: 'center'
+  buttonWrapper: {
+    padding: 16
   }
 })

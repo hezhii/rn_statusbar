@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, ImageBackground, Button } from 'react-native'
+import { StyleSheet, View, ImageBackground, Button, StatusBar } from 'react-native'
 
 import Header from '../components/Header'
 
@@ -11,8 +11,9 @@ export default class Home extends React.PureComponent {
   render() {
     return (
       <View style={styles.fill}>
+        <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
         <ImageBackground style={styles.bg} source={require('../assets/imgs/bg.png')}>
-          <Header title="主页" />
+          <Header title="主页" fullScreen />
         </ImageBackground>
         <View style={styles.buttonWrapper}>
           <Button

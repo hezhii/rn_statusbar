@@ -11,7 +11,7 @@ export default class My extends React.PureComponent {
   render() {
     return (
       <View style={styles.fill}>
-        <Header title="我的" style={styles.header} />
+        <Header title="我的" style={styles.header} fullScreen />
         <View style={styles.buttonWrapper}>
           <Button
             title="退出登录"

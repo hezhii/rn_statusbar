@@ -15,6 +15,8 @@ export { DEVICE_SIZE };
 
 export const isiOS = () => Platform.OS === 'ios'
 
+export const isAndroid = () => Platform.OS === 'android'
+
 export const isiPhoneX = () => {
   return (
     isiOS() &&
