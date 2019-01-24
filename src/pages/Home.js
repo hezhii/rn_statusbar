@@ -2,7 +2,13 @@ import React from 'react'
 import { StyleSheet, View, ImageBackground, Button, StatusBar } from 'react-native'
 
 import Header from '../components/Header'
+import { setStatusBar } from '../components/HOC/StatusBar'
 
+@setStatusBar({
+  barStyle: 'light-content',
+  translucent: true,
+  backgroundColor: 'transparent'
+})
 export default class Home extends React.PureComponent {
   static navigationOptions = {
     title: '主页'
@@ -11,7 +17,6 @@ export default class Home extends React.PureComponent {
   render() {
     return (
       <View style={styles.fill}>
-        <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />
         <ImageBackground style={styles.bg} source={require('../assets/imgs/bg.png')}>
           <Header title="主页" fullScreen />
         </ImageBackground>

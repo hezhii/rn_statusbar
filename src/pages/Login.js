@@ -1,30 +1,17 @@
 import React from 'react'
-import { StyleSheet, View, StatusBar, Button } from 'react-native'
+import { StyleSheet, View, Button } from 'react-native'
 
-import { isAndroid } from '../utils/device'
+import { setStatusBar } from '../components/HOC/StatusBar'
 
+@setStatusBar()
 export default class Login extends React.PureComponent {
   static navigationOptions = {
     title: '登录',
   }
 
-  constructor(props) {
-    super(props)
-    this._navListener = props.navigation.addListener('willFocus', () => {
-      StatusBar.setBarStyle('dark-content');
-      isAndroid() && StatusBar.setBackgroundColor('#fff');
-    });
-  }
-
-  componentWillUnmount() {
-    this._navListener.remove();
-  }
-
-
   render() {
     return (
       <View style={styles.fill}>
-        <StatusBar translucent={false} backgroundColor='#fff' barStyle="dark-content" />
         <View style={styles.buttonWrapper}>
           <Button
             title="点击注册"

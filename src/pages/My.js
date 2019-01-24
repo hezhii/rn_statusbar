@@ -2,7 +2,13 @@ import React from 'react'
 import { StyleSheet, View, Button } from 'react-native'
 
 import Header from '../components/Header'
+import { setStatusBar } from '../components/HOC/StatusBar'
 
+@setStatusBar({
+  barStyle: 'light-content',
+  translucent: true,
+  backgroundColor: 'transparent'
+})
 export default class My extends React.PureComponent {
   static navigationOptions = {
     title: '我的',

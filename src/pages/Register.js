@@ -5,8 +5,9 @@ export default class Login extends React.PureComponent {
   static navigationOptions = {
     title: '注册',
     headerStyle: {
-      backgroundColor: 'red'
-    }
+      backgroundColor: '#437dff',
+    },
+    headerTintColor: '#fff'
   }
 
   render() {
