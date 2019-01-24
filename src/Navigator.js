@@ -1,4 +1,5 @@
 import React from 'react'
+import { Platform, StatusBar } from 'react-native'
 import { createAppContainer, createStackNavigator, createBottomTabNavigator } from 'react-navigation'
 
 import TabBarIcon from './components/TabBarIcon'
@@ -41,7 +42,13 @@ export default createAppContainer(createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerBackTitle: '返回'
+      headerBackTitle: '返回',
+      headerStyle: {
+        ...Platform.OS === 'android' && {
+          height: StatusBar.currentHeight + 44,
+          paddingTop: StatusBar.currentHeight
+        }
+      }
     }
   }
 ))

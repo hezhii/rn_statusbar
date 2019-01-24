@@ -12,10 +12,10 @@ import { isiOS, isiPhoneX } from '../../utils/device'
 const STATUS_BAR_HEIGHT = isiOS() ? (isiPhoneX() ? 34 : 20) : StatusBar.currentHeight
 const HEADER_HEIGHT = 44
 
-const Header = ({ title, left, right, color = '#fff', style, fullScreen }) => {
+const Header = ({ title, left, right, color = '#fff', style }) => {
   const headerStyle = [
     styles.header,
-    (fullScreen || isiOS()) && {
+    {
       height: STATUS_BAR_HEIGHT + HEADER_HEIGHT,
       paddingTop: STATUS_BAR_HEIGHT
     },
